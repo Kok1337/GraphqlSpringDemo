@@ -26,4 +26,7 @@ class Person(
     @ManyToOne
     @JoinColumn(name="race_id", referencedColumnName = "id")
     var race: Race? = null,
+
+    @ManyToMany(mappedBy = "actors")
+    var films: Set<Film> = emptySet()
 )

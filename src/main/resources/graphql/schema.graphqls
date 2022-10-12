@@ -1,7 +1,17 @@
 type Query {
-    countries: [Country]
+    countries: [Country!]
     country(code: ID!): Country
     person(id: ID): Person
+    film(name: String): [Film!]
+}
+
+type Mutation {
+    createFilm(film: FilmInput): Film!
+}
+
+input FilmInput {
+    name: String!
+    description: String
 }
 
 type Country {
@@ -13,5 +23,18 @@ type Person {
     id: ID!
     firstName: String!
     lastName: String!
-    country: Country!
+
+    country: String!
+    gender: String!
+    race: String!
+
+    films: [Film!]
+}
+
+type Film {
+    id: ID!
+    name: String!
+    description: String
+
+    actors: [Person!]
 }
