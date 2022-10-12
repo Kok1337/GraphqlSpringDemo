@@ -48,6 +48,5 @@ class GraphqlController(
             description = film.description,
         )
         return FilmType(filmRepo.save(newFilm))
-//        println("${film.id}  ${film.name}")
     }
 }
